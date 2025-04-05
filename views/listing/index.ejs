@@ -1,0 +1,153 @@
+<% layout("/layout/boilarplate.ejs") %>
+  <style>
+    #filters{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter{
+      text-align: center;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      opacity: 0.7;
+      margin-right: 2.5rem;
+    }
+
+    .filter a{
+      text-decoration: none;
+      color: black;
+    }
+    .filter:hover{
+      opacity: 1;
+      cursor: pointer;
+    }
+    .filter p{
+      font-size: 0.8rem;
+    }
+    .tax-toggle{
+      border: 1px black solid;
+      border-radius: 1rem;
+      height: 3rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+    }
+    .tax-info{
+      display: none;
+    }
+    .img{
+      height: 22px;
+      width: 22px;
+    }
+  </style>
+  <body>
+  <div id="filters" class="row-cols-lg-12 row-cols-md-8">
+    <div class="filter">
+      <a href="/listing?category=Trending">
+        <img class="img" src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg">
+        <p>Trending</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Top%20of%20world">
+        <img class="img"  src="https://a0.muscache.com/pictures/248f85bf-e35e-4dc3-a9a1-e1dbff9a3db4.jpg">
+        <p>Top of world</p>
+      </a>  
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Arctic">
+        <img class="img" src="https://a0.muscache.com/pictures/8b44f770-7156-4c7b-b4d3-d92549c8652f.jpg">
+        <p>Arctic</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Castels">
+        <img class="img" src="https://a0.muscache.com/pictures/1b6a8b70-a3b6-48b5-88e1-2243d9172c06.jpg">
+        <p>Castels</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Beach">
+        <img class="img" src="https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg">
+        <p>Beach</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Creative%20spaces">
+        <img class="img" src="https://a0.muscache.com/pictures/8a43b8c6-7eb4-421c-b3a9-1bd9fcb26622.jpg">
+        <p>Creative spaces</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Boat">
+        <img class="img" src="https://a0.muscache.com/pictures/687a8682-68b3-4f21-8d71-3c3aef6c1110.jpg">
+        <p>Boat</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Farm">
+        <img class="img" src="https://a0.muscache.com/pictures/aaa02c2d-9f0d-4c41-878a-68c12ec6c6bd.jpg">
+        <p>Farm</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a href="/listing?category=Domes">
+        <img class="img" src="https://a0.muscache.com/pictures/89faf9ae-bbbc-4bc4-aecd-cc15bf36cbca.jpg">
+        <p>Domes</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a  href="/listing?category=Rooms">
+        <img class="img" src="https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg">
+        <p>Rooms</p>
+      </a>
+    </div>
+    <div class="filter">
+      <a  href="/listing?category=Iconic%20cities">
+        <img class="img" src="https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg">
+        <p>Iconic cities</p>
+      </a>
+    </div>
+    <div class="tax-toggle">
+      <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
+    <% for(let listing of allListings) { %>
+      <a href="/listings/<%= listing.id %>" class="card-show">
+        <div class="card listing-card ">
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="..." style="height:20rem">
+          <div class="card-img-overlay opacity-50 side"><i class="fa-solid fa-heart icon"></i></div>
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %></b><br>
+              &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+              <i class="tax-info">&nbsp;&nbsp;+18%GST</i>
+            </p>
+          </div>
+        </div>
+      </a>
+      
+    <% } %>
+  </div>
+  <script>
+    let taxSwitch = document.getElementById('flexSwitchCheckDefault');
+      taxSwitch.addEventListener("click" , ()=>{
+        let taxInfo = document.getElementsByClassName('tax-info');
+        for(info of taxInfo){
+          if(info.style.display!='inline'){
+            info.style.display = 'inline';
+          }else{
+            info.style.display = 'none';
+          }
+        }
+      });
+    
+  </script>  
+  <script src="/js/style.js"></script> 
+  </body>

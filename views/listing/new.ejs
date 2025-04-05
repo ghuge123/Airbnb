@@ -1,0 +1,96 @@
+<% layout("/layout/boilarplate.ejs") %>
+<body>
+    <div class="row">
+        <div class="col-8">
+            <!-- <br><br> -->
+            <h3 class="mt-3">Create a new Listing</h3>
+            <form method="post" action="/listings" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="title" class="form-label">title</label>
+                    <input name="listing[title]" placeholder="title" id="title" class="form-control " required>
+                    <div class="invalid-feedback">
+                        Please provide title.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">description</label>
+                    <textarea name="listing[description]" placeholder="description" id="description" class="form-control "  required></textarea>
+                    <div class="invalid-feedback">
+                        Please write description.
+                    </div>
+                </div>
+                <!-- <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="listing[category]"  id="category" class="form-control">
+                        <option value="Listing Category">Listing Category</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Top of world">Top of world</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Boat">Boat</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Castels">Castels</option>
+                        <option value="Farm">Farm</option>
+                        <option value="Domes">Domes</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic cities">Iconic cities</option>
+                        <option value="Creative spaces">Creative spaces</option>
+
+                </div>
+                 -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload image</label>
+                    <input name="listing[image]" type="file" placeholder="enter image URL/Link" id="image" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="listing[category]" id="category" class="form-select" required>
+                        <option value="">Select a Category</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Top of world">Top of world</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Boat">Boat</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Castels">Castels</option>
+                        <option value="Farm">Farm</option>
+                        <option value="Domes">Domes</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Iconic cities">Iconic cities</option>
+                        <option value="Creative spaces">Creative spaces</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select Category.
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">price</label>
+                            <input name="listing[price]" placeholder="1200" id="price" class="form-control"  required>
+                            <div class="invalid-feedback">
+                                Please provide valid price.
+                            </div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                            <label for="country" class="form-label">country</label>
+                            <input name="listing[country]" placeholder="India" id="country" class="form-control"  required>
+                            <div class="invalid-feedback">
+                                Please write country name.
+                            </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="location" class="form-label">location</label>
+                    <input name="listing[location]" placeholder="Nashik,Maharashtra" id="location" class="form-control "  required>
+                    <div class="invalid-feedback">
+                        Please provide location.
+                    </div>
+                </div>
+                
+                <button  class="add btn btn-dark mb-3">add</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
