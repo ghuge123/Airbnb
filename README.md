@@ -6,7 +6,7 @@ This is a full-featured **Airbnb Clone** built using **Node.js**, **Express**, *
 
 ## 🌐 Live Demo
 
-🔗 [Live Site](https://wonderlust-m4dg.onrender.com/listings) &nbsp; _(Replace with your hosted URL if available)_
+🔗 [Live Site](https://wonderlust-m4dg.onrender.com/listings)
 
 ---
 
@@ -52,10 +52,10 @@ This is a full-featured **Airbnb Clone** built using **Node.js**, **Express**, *
 ┣ 📜package.json
 ┗ 📜README.md
 
-
+```
 ---
 
-🙋 About Me
+## 🙋 About Me
 I'm Dipak Ghuge, a final-year IT engineering student passionate about full-stack development.
 This Airbnb clone is part of my hands-on learning with real-world web app structure using the MERN-like stack (EJS instead of React).
 
@@ -78,7 +78,7 @@ npm install
 
 # 4. Run the server
 npm start
-
+```
 ---
 
 ## ❤️ Made with Love
